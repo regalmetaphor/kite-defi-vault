@@ -1,0 +1,8 @@
+{
+  "name": "kite-defi-vault",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "compile": "node scripts/compile.mjs", "test": "npm run compile" },
+  "devDependencies": { "solc": "^0.8.30" }
+}
