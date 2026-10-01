@@ -18,6 +18,8 @@ contract KiteAuthorizationVault {
         DOMAIN_SEPARATOR = keccak256(abi.encode(keccak256("EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)"), keccak256(bytes("Kite Authorization Vault")), keccak256(bytes("1")), block.chainid, address(this)));
     }
 
+    function domainSeparator() external view returns (bytes32) { return DOMAIN_SEPARATOR; }
+
     function permit(address owner, address agent, address asset, uint256 limit, uint256 deadline, bytes calldata signature) external {
         require(block.timestamp <= deadline, "permit expired");
         uint256 nonce = nonces[owner]++;
